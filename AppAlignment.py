@@ -29,15 +29,15 @@ w = Canvas(master,
            height=canvas_height)
 w.pack()
 
-sum = Vector2(0, 0)
+sum_velocity = Vector2(0, 0)
 COUNT = 10
 for i in range(COUNT):
-    p = Vector2(random.randint(100, 600), random.randint(100, 600))
-    v = Vector2(random.randint(-20, 20), random.randint(-100, -50))
-    sum += v
-    w.create_line(p.x, p.y, p.x + v.x, p.y + v.y, fill="red", arrow=LAST)
+    position = Vector2(random.randint(100, 600), random.randint(100, 600))
+    velocity = Vector2(random.randint(-20, 20), random.randint(-100, -50))
+    sum_velocity += velocity
+    w.create_line(position.x, position.y, position.x + velocity.x, position.y + velocity.y, fill="red", arrow=LAST)
 
-my_velocity = sum / COUNT
+my_velocity = sum_velocity / COUNT
 w.create_line(600, 600, 600 + my_velocity.x, 600 + my_velocity.y, fill="black", arrow=LAST)
 
 raise_app(master)
